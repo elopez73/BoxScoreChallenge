@@ -1,0 +1,132 @@
+/* Mlb.css */
+/* ... Your existing CSS */
+
+.baseball-game {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, sans-serif;
+    font-size: .8rem;
+	background-color: #f5f5f5;
+    border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 0;
+	width: 100%;
+}
+
+.baseball-game .sections {
+	display: flex;
+	flex-direction: column;
+	align-self: start;
+	width: 50%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+    border-left: 1px solid #ccc;
+}
+
+
+.baseball-game h4 {
+	margin: 0.8em 0 0.5em 0;
+	color: #333;
+	font-weight: normal;
+	font-family: 'Orienta', sans-serif;
+	font-size: 36px;
+	line-height: 40px;
+}
+ h2 {
+	margin: 0.8em 0 0.5em 0;
+	color: #333;
+	font-weight: normal;
+	font-family: 'Orienta', sans-serif;
+	font-size: 50px;
+	line-height: 40px;
+}
+h3{
+    margin: 0.8em 0 0.5em 0;
+	color: #333;
+	font-weight: normal;
+	font-family: 'Orienta', sans-serif;
+	font-size: 25px;
+	line-height: 40px;
+}
+h5{
+    margin: 0.8em 0 0.5em 0;
+	color: #333;
+	font-weight: normal;
+	font-family: 'Orienta', sans-serif;
+	font-size: 20px;
+	line-height: 40px;
+}
+.baseball-game .team {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+    margin: 0;
+}
+.baseball-game .team .team-sections {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+.baseball-game ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.baseball-game ul li {
+	display: flex;
+	border: 1px solid #ccc;
+}
+
+.baseball-game ul li span.Batters {
+    display: block;
+    width: 15%;
+    align-items: right;
+	text-align: right;
+	padding: 5px 0;
+    border: 1px solid #ccc;
+}
+
+.baseball-game ul li h1.Batters {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: .9rem;
+    text-align: left;
+    width: 65%;
+}
+.baseball-game ul li span.Fielders {
+    display: block;
+    width: 15%;
+	text-align: right;
+	padding: 5px 0;
+    border: 1px solid #ccc;
+}
+.baseball-game ul li h1.Fielders {
+    display: flex;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: .9rem;
+    text-align: left;
+    width: 85%;
+}
+.baseball-game ul li span.Pitchers {
+    display: block;
+    width: 25%;
+	text-align: right;
+	padding: 5px 0;
+    border: 1px solid #ccc;
+}
+.baseball-game ul li h1.Pitchers {
+    display: flex;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: .9rem;
+    text-align: left;
+    width: 50%;
+}
+.baseball-game ul li:nth-child(even) {
+  background-color: #eee5e5;
+}
