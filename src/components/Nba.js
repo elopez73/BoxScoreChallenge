@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../stlying/Nba.css'
-const apiBaseUrl = 'https://boxscoreapi-263655f53c81.herokuapp.com';
+const apiBaseUrl = 'https://boxscoreapi-263655f53c81.herokuapp.com/';
 function Nba() {
     const [gameData, setGameData] = useState(null);
     const [awayteam, setAwayTeam] = useState(null);
@@ -25,7 +25,7 @@ function Nba() {
         };
 
         fetchData();
-    }, [gameData]);
+    }, []);
 
     if (!gameData) {
         return <div>Loading...</div>;
