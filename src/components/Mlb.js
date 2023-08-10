@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../stlying/Mlb.css';
-const apiBaseUrl = 'https://boxscoreapi-263655f53c81.herokuapp.com/';
+const apiBaseUrl = 'https://boxscoreapi-263655f53c81.herokuapp.com';
 function Mlb() {
 
     const [awayteam, setAwayTeam] = useState(null);
