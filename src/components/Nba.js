@@ -25,7 +25,7 @@ function Nba() {
         };
 
         fetchData();
-    }, []);
+    }, [gameData]);
 
     if (!gameData) {
         return <div>Loading...</div>;
