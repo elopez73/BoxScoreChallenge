@@ -9,12 +9,6 @@ function App() {
     <div className="App">
       <Mlb />
       <Nba sport="nba" />
-
-
-
-
-
-
     </div>
   );
 }
