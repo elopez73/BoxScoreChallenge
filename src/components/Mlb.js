@@ -13,32 +13,39 @@ function Mlb() {
     const [homefielding, setHomeFielding] = useState(null);
     const [homepitchers, setHomePitchers] = useState(null);
     const [gameData, setGameData] = useState(null);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${apiBaseUrl}/api/feed/mlb`);
+            console.log('API response data:', response);
+            setGameData(response.data);
+            setAwayTeam(response.data.gameData.away_team.full_name);
+            setAwayBatters(response.data.gameData.away_batters);
+            setAwayFielding(response.data.gameData.away_fielding);
+            setAwayPitchers(response.data.gameData.away_pitchers);
+            setHomeTeam(response.data.gameData.home_team.full_name);
+            setHomeBatters(response.data.gameData.home_batters);
+            setHomeFielding(response.data.gameData.home_fielding);
+            setHomePitchers(response.data.gameData.home_pitchers);
+            console.log(response.data.gameData);
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${apiBaseUrl}/api/feed/mlb`);
-                console.log('API response data:', response);
-                setGameData(response.data);
-                setAwayTeam(response.data.gameData.away_team.full_name);
-                setAwayBatters(response.data.gameData.away_batters);
-                setAwayFielding(response.data.gameData.away_fielding);
-                setAwayPitchers(response.data.gameData.away_pitchers);
-                setHomeTeam(response.data.gameData.home_team.full_name);
-                setHomeBatters(response.data.gameData.home_batters);
-                setHomeFielding(response.data.gameData.home_fielding);
-                setHomePitchers(response.data.gameData.home_pitchers);
-                console.log(response.data.gameData);
-
-            } catch (error) {
-                console.error('Error fetching data:', error);
-
-            }
-        };
-
         fetchData();
+        const fetchInterval = setInterval(() => {
+            fetchData();
+        }, 15000);
+
+        // Clear the interval when the component unmounts
+        return () => {
+            clearInterval(fetchInterval);
+        };
     }, []);
-
-
 
     if (!gameData) {
         return <div>Loading...</div>;

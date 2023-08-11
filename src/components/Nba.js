@@ -8,25 +8,32 @@ function Nba() {
     const [awaystats, setStats] = useState(null);
     const [hometeam, setHomeTeam] = useState(null);
     const [homestats, setHomeStats] = useState(null);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${apiBaseUrl}/api/feed/nba`);
+            console.log('API response data:', response.data);
+            setGameData(response.data.gameData);
+            setAwayTeam(response.data.gameData.away_team.full_name);
+            setStats(response.data.gameData.away_stats);
+            setHomeTeam(response.data.gameData.home_team.full_name);
+            setHomeStats(response.data.gameData.home_stats);
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${apiBaseUrl}/api/feed/nba`);
-                console.log('API response data:', response.data);
-                setGameData(response.data.gameData);
-                setAwayTeam(response.data.gameData.away_team.full_name);
-                setStats(response.data.gameData.away_stats);
-                setHomeTeam(response.data.gameData.home_team.full_name);
-                setHomeStats(response.data.gameData.home_stats);
-
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
         fetchData();
+        const fetchInterval = setInterval(() => {
+            fetchData();
+        }, 15000);
+        return () => {
+            clearInterval(fetchInterval);
+        };
     }, []);
-
     if (!gameData) {
         return <div>Loading...</div>;
     }
